@@ -3,6 +3,6 @@
 
 Simple S.M.A.R.T. monitoring
 
-[Wiki](https://github.com/gSpotx2f/smarthtml/wiki)
+[Wiki](https://github.com/S0ft0r/smartmqtt/wiki)
 
 ___________________
