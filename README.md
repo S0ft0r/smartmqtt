@@ -1,4 +1,4 @@
-## S.M.A.R.T.HTML
+## S.M.A.R.T.HTML + MQTT
 
 
 Simple S.M.A.R.T. monitoring
