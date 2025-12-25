@@ -1558,7 +1558,7 @@ case $1 in
     mqtttest)
         if [ $USE_MQTT = "1" ]; then
             echo '{"test":"value"}' > $MQTT_MSG_FILE
-            RunMailer debug
+            RunMQTT $MQTT_MSG_FILE debug
         fi
     ;;
     norrd)
