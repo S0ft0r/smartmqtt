@@ -62,6 +62,8 @@ export USE_FDISK=1
 export USE_LOGGER=1
 ### E-mail support for critical warnings (0 - disable; 1 - enable)
 export USE_MAIL=0
+### MQTT support for warnings (0 - disable; 1 - enable)
+export USE_MQTT=0
 ### RRD support (0 - disable; 1 - enable)
 export USE_RRD=1
 ### RRD database preset (1 - 30mins; 2 - 1hour; 3 - 3hours; 4 - 6hours; 5 - 12hours; 6 - 24hours)
@@ -208,12 +210,13 @@ export WARN_AUTO_RESET_COUNT=$(($WARN_AUTO_RESET_COUNT * $WARN_AUTO_RESET_DAYS))
 
 Help() {
 cat << EOF
-Usage: `basename $0` [norrd|resetwarn|resetcount|makerrdgraph|mailtest|--help]
+Usage: `basename $0` [norrd|resetwarn|resetcount|makerrdgraph|mailtest|mqtttest|--help]
         norrd : Update SMART data only (doesn't call rrdtool update) (if USE_RRD is 1)
         resetwarn : Reset warnings
         resetcount : Reset change counters
         makerrdgraph : Call rrdtool graph (if USE_RRD is 1)
         mailtest : Send the test email (if USE_MAIL is 1)
+        mqtttest : Publish test message (if USE_MQTT is 1)
         -h|--help : This message
 Examples:
         `basename $0`
@@ -222,6 +225,7 @@ Examples:
         `basename $0` resetcount
         `basename $0` makerrdgraph
         `basename $0` mailtest
+        `basename $0` mqtttest
 
 EOF
     exit 0
