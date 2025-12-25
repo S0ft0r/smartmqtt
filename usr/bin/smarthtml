@@ -1552,7 +1552,7 @@ case $1 in
         fi
     ;;
     mqtttest)
-        if [ $USE_MAIL = "1" ]; then
+        if [ $USE_MQTT = "1" ]; then
             echo "{"test":"value"}" > $MQTT_MSG_FILE
             RunMailer debug
         fi
