@@ -28,6 +28,8 @@ MAILER_SCRIPT="/opt/usr/bin/smarthtml_mailer_msmtp"
 HTML_DIR="/opt/share/www"
 ### URL path for CGI module
 CGI_MODULE_WWW_PATH="/cgi-bin/${NAME}.cgi"
+### MQTT script
+MQTT_SCRIPT="/opt/usr/bin/smarthtml_mailer_mqtt"
 
 ############################ Default settings #################################
 
@@ -114,6 +116,7 @@ fi
 DB_DIR="${SCRIPT_DATA_DIR}/db"
 LOG_DIR="${SCRIPT_DATA_DIR}/log"
 export MAILER_MSG_FILE="${SCRIPT_DATA_DIR}/message"
+export MQTT_MSG_FILE="${SCRIPT_DATA_DIR}/payload"
 export HTML_OUTPUT="${HTML_DIR}/smart.html"
 RRD_DB_DIR="${SCRIPT_DATA_DIR}/rrd"
 RRD_DB_EXT="rrd"
@@ -738,6 +741,21 @@ MakeDevicesInfo() {
                             when_failed,
                             (is_bad == 1) ? "Have reached the threshold!" : "",
                             last_value >>ENVIRON["MAILER_MSG_FILE"];
+                    };
+                    if(ENVIRON["USE_MQTT"] == 1) {
+                        printf "{\"DATE\":%s, \"DEVICE_PATH\":%s,\"id\":\"%s\",\"attr_name\":%s,\"msg\":%s,\"raw_value\":\"%s\",\"RAW\":{\"VALUE\":\"%s\",\"WORST\":\"%s\",\"THRESH:\"%s\",\"WHEN_FAILED\":\"%s\"},\"threshold\":\"%s\",\"Previous\":\"%s\"}",
+                            DATE,
+                            DEVICE_PATH,
+                            id,
+                            attr_name,
+                            msg,
+                            raw_value,
+                            value,
+                            worst,
+                            threshold,
+                            when_failed,
+                            (is_bad == 1) ? "Have reached the threshold!" : "",
+                            last_value >>ENVIRON["MQTT_MSG_FILE"];
                     };
                 };
         };
@@ -1479,6 +1497,13 @@ RunMailer() {
     [ -e "$MAILER_MSG_FILE" ] && rm -f $MAILER_MSG_FILE
 }
 
+RunMQTT() {
+    if [ -s "$MQTT_MSG_FILE" -a -x "$MQTT_SCRIPT" ]; then
+        $MQTT_SCRIPT "$MQTT_MSG_FILE" $1
+    fi
+    [ -e "$MQTT_MSG_FILE" ] && rm -f $MQTT_MSG_FILE
+}
+
 MainRun() {
     local _dir
 
@@ -1490,10 +1515,12 @@ MainRun() {
     done
 
     [ -e "$MAILER_MSG_FILE" ] && rm -f $MAILER_MSG_FILE
+    [ -e "$MQTT_MSG_FILE" ] && rm -f $MQTT_MSG_FILE
     MakeHtmlHeader
     MakeDevicesInfo $1
     MakeHtmlFooter
     [ $USE_MAIL = "1" ] && RunMailer &> /dev/null
+    [ $USE_MQTT = "1" ] && RunMQTT &> /dev/null
 }
 
 ############################### Main section ##################################
@@ -1521,6 +1548,12 @@ case $1 in
     mailtest)
         if [ $USE_MAIL = "1" ]; then
             echo "${HOSTNAME} -- This is a test message..." > $MAILER_MSG_FILE
+            RunMailer debug
+        fi
+    ;;
+    mqtttest)
+        if [ $USE_MAIL = "1" ]; then
+            echo "{"test":"value"}" > $MQTT_MSG_FILE
             RunMailer debug
         fi
     ;;
