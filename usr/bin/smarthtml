@@ -722,6 +722,21 @@ MakeDevicesInfo() {
                 (is_bad == 1) ? "Have reached the threshold!" : "",
                 last_value >>LOG_FILE;
 
+            if(ENVIRON["USE_MQTT"] == 1) {
+                        printf "{\"DATE\":%s, \"DEVICE_PATH\":%s,\"id\":\"%s\",\"attr_name\":%s,\"msg\":%s,\"raw_value\":\"%s\",\"RAW\":{\"VALUE\":\"%s\",\"WORST\":\"%s\",\"THRESH:\"%s\",\"WHEN_FAILED\":\"%s\"},\"threshold\":\"%s\",\"Previous\":\"%s\"}",
+                            DATE,
+                            DEVICE_PATH,
+                            id,
+                            attr_name,
+                            msg,
+                            raw_value,
+                            value,
+                            worst,
+                            threshold,
+                            when_failed,
+                            (is_bad == 1) ? "Have reached the threshold!" : "",
+                            last_value >>ENVIRON["MQTT_MSG_FILE"];
+                };
                 if(critical == 1) {
                     if(ENVIRON["USE_LOGGER"] == 1) {
                         system(ENVIRON["LOGGER_CMD"] " " ENVIRON["LOGGER_PARAMS"] " \"" DEVICE_PATH " -- " id " " attr_name " -- " msg " -- RAW=" raw_value " (VALUE=" value " WORST=" worst " THRESH=" threshold " WHEN_FAILED=" when_failed ") -- " ((is_bad == 1) ? "Have reached the threshold!" : "") " -- Previous=" last_value"\"");
@@ -741,21 +756,6 @@ MakeDevicesInfo() {
                             when_failed,
                             (is_bad == 1) ? "Have reached the threshold!" : "",
                             last_value >>ENVIRON["MAILER_MSG_FILE"];
-                    };
-                    if(ENVIRON["USE_MQTT"] == 1) {
-                        printf "{\"DATE\":%s, \"DEVICE_PATH\":%s,\"id\":\"%s\",\"attr_name\":%s,\"msg\":%s,\"raw_value\":\"%s\",\"RAW\":{\"VALUE\":\"%s\",\"WORST\":\"%s\",\"THRESH:\"%s\",\"WHEN_FAILED\":\"%s\"},\"threshold\":\"%s\",\"Previous\":\"%s\"}",
-                            DATE,
-                            DEVICE_PATH,
-                            id,
-                            attr_name,
-                            msg,
-                            raw_value,
-                            value,
-                            worst,
-                            threshold,
-                            when_failed,
-                            (is_bad == 1) ? "Have reached the threshold!" : "",
-                            last_value >>ENVIRON["MQTT_MSG_FILE"];
                     };
                 };
         };
