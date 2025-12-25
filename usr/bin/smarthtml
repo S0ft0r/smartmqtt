@@ -727,7 +727,7 @@ MakeDevicesInfo() {
                 last_value >>LOG_FILE;
 
             if(ENVIRON["USE_MQTT"] == 1) {
-                        printf "{\"DATE\":%s, \"DEVICE_PATH\":%s,\"id\":\"%s\",\"attr_name\":%s,\"msg\":%s,\"raw_value\":\"%s\",\"RAW\":{\"VALUE\":\"%s\",\"WORST\":\"%s\",\"THRESH:\"%s\",\"WHEN_FAILED\":\"%s\"},\"threshold\":\"%s\",\"Previous\":\"%s\"}",
+                        printf "{\"DATE\":\"%s\", \"DEVICE_PATH\":\"%s\",\"id\":\"%s\",\"attr_name\":\"%s\",\"msg\":\"%s\",\"raw_value\":\"%s\",\"RAW\":{\"VALUE\":\"%s\",\"WORST\":\"%s\",\"THRESH:\"%s\",\"WHEN_FAILED\":\"%s\"},\"threshold\":\"%s\",\"Previous\":\"%s\"}",
                             DATE,
                             DEVICE_PATH,
                             id,
@@ -1557,7 +1557,7 @@ case $1 in
     ;;
     mqtttest)
         if [ $USE_MQTT = "1" ]; then
-            echo "{"test":"value"}" > $MQTT_MSG_FILE
+            echo '{"test":"value"}' > $MQTT_MSG_FILE
             RunMailer debug
         fi
     ;;
