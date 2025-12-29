@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>S.M.A.R.T.HTML</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script async="false">
+        var startSuffArray = [];
+        var DISABLED_SMART_ATTRS = [];
+        var RRD_SMART_ATTRS = [];
+        var RRD_SMART_ATTRS_DEF_GRAPH = [];
+        var RRD_SMART_ATTRS_DIFF = [];
+        var RRD_DB_STEP = 10800;
+        var SCT_DEVICES_ARRAY = [];
+        var RRD_GRAPH_WWW_PATH = '.';
+        var RRD_GRAPH_EXT = 'png';
+        var USE_CGI_MODULE = 0;
+        var CGI_MODULE_WWW_PATH = '/cgi-bin/smarthtml.cgi';
+        var showAlert = 0;
+        startSuffArray.push('-14days');
+        startSuffArray.push('-30days');
+        startSuffArray.push('-365days');
+        DISABLED_SMART_ATTRS.push('4');
+        DISABLED_SMART_ATTRS.push('9');
+        DISABLED_SMART_ATTRS.push('12');
+        RRD_SMART_ATTRS.push('3');
+        RRD_SMART_ATTRS.push('190');
+        RRD_SMART_ATTRS.push('194');
+        RRD_SMART_ATTRS_DEF_GRAPH.push('190');
+        RRD_SMART_ATTRS_DEF_GRAPH.push('194');
+    </script>
+    <script src="main.js"></script>
+    <noscript><p class="center"><strong>You need to enable JavaScript</strong></p></noscript>
+    <div id="main-content">
+        <nav id="tabs-nav"></nav>
+        <div class="tabs-container">
+<section class="device-tab" data-device="sdb" data-tab="0" data-tab-title="/dev/sdb"> 
+                <div class="tab-flex-container"> 
+<header class="device-header">/dev/sdb | WDC WD20EZRZ-00Z5HB0 | Last check: 2025.12.26 17:47:32</header> 
+<script async="false">
+SCT_DEVICES_ARRAY.push([
+'sdb',
+478,
+1,
+1766760454,
+60,
+85,
+[36,36,36,37,37,37,37,37,37,36,36,36,36,36,36,36,36,36,36,36,35,35,35,35,35,35,35,35,35,35,35,35,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,33,null,33,32,32,33,33,33,33,34,34,34,null,33,33,33,33,33,33,34,34,34,34,34,35,35,35,35,35,35,35,35,35,35,35,35,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,null,34,34,34,34,34,34,35,35,35,35,35,35,36,36,36,36,36,37,37,37,37,37,36,36,36,36,36,36,36,36,36,36,36,36,35,35,35,35,35,35,35,35,35,35,35,35,35,35,35,35,35,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,null,33,33,null,33,33,33,33,34,34,34,34,34,35,null,36,35,35,35,36,36,36,36,]
+]);</script> 
+<section id="smart-table"> 
+                <header class="section-header">S.M.A.R.T. attributes</header> 
+<div class="smart-status" data-smart-status="passed"> 
+                    <span class="label">SMART overall-health self-assessment test result: passed</span> 
+                </div> 
+<table class="smart-table"> 
+                    <thead> 
+                        <tr> 
+                            <th scope="col">Id#</th> 
+                            <th scope="col">Attribute name</th> 
+                            <th scope="col">VALUE</th> 
+                            <th scope="col">WORST</th> 
+                            <th scope="col">THRESH</th> 
+                            <th scope="col">WHEN FAILED</th> 
+                            <th scope="col">RAW</th> 
+                            <th scope="col">Degr. count</th> 
+                            <th scope="col">Improv. count</th> 
+                            <th scope="col">Last change</th> 
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="1" data-tooltip-hex="2">1</td> 
+                        <td data-smart-attr="1" data-smart-device="sdb">Raw Read Error Rate</td> 
+                        <td>200</td> 
+                        <td>200</td> 
+                        <td>051</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="lowdegr"> 
+                        <td data-tooltip="3" data-tooltip-hex="2">3</td> 
+                        <td data-smart-attr="3" data-smart-device="sdb">Spin Up Time</td> 
+                        <td>177</td> 
+                        <td>171</td> 
+                        <td>021</td> 
+                        <td>-</td> 
+                        <td data-tooltip="4133" data-tooltip-hex="12">4133</td> 
+                        <td>7</td> 
+                        <td>4</td> 
+                        <td data-tooltip="previous RAW: 4116">+17&uarr;</td> 
+                    </tr> 
+<tr data-smart-change="disabled"> 
+                        <td data-tooltip="4" data-tooltip-hex="2">4</td> 
+                        <td data-smart-attr="4" data-smart-device="sdb">Start Stop Count</td> 
+                        <td>098</td> 
+                        <td>098</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="2055" data-tooltip-hex="12">2055</td> 
+                        <td></td> 
+                        <td></td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="5" data-tooltip-hex="2">5</td> 
+                        <td data-smart-attr="5" data-smart-device="sdb">Reallocated Sector Ct</td> 
+                        <td>200</td> 
+                        <td>200</td> 
+                        <td>140</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="7" data-tooltip-hex="2">7</td> 
+                        <td data-smart-attr="7" data-smart-device="sdb">Seek Error Rate</td> 
+                        <td>100</td> 
+                        <td>253</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="disabled"> 
+                        <td data-tooltip="9" data-tooltip-hex="2">9</td> 
+                        <td data-smart-attr="9" data-smart-device="sdb">Power On Hours</td> 
+                        <td>077</td> 
+                        <td>077</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="16798" data-tooltip-hex="12">16798</td> 
+                        <td></td> 
+                        <td></td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="10" data-tooltip-hex="2">10</td> 
+                        <td data-smart-attr="10" data-smart-device="sdb">Spin Retry Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="11" data-tooltip-hex="2">11</td> 
+                        <td data-smart-attr="11" data-smart-device="sdb">Calibration Retry Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="disabled"> 
+                        <td data-tooltip="12" data-tooltip-hex="2">12</td> 
+                        <td data-smart-attr="12" data-smart-device="sdb">Power Cycle Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="461" data-tooltip-hex="12">461</td> 
+                        <td></td> 
+                        <td></td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="192" data-tooltip-hex="2">192</td> 
+                        <td data-smart-attr="192" data-smart-device="sdb">Power-Off Retract Count</td> 
+                        <td>200</td> 
+                        <td>200</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="84" data-tooltip-hex="12">84</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="lowdegr"> 
+                        <td data-tooltip="193" data-tooltip-hex="2">193</td> 
+                        <td data-smart-attr="193" data-smart-device="sdb">Load Cycle Count</td> 
+                        <td>184</td> 
+                        <td>184</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="49480" data-tooltip-hex="12">49480</td> 
+                        <td>16</td> 
+                        <td>0</td> 
+                        <td data-tooltip="previous RAW: 49461">+19&uarr;</td> 
+                    </tr> 
+<tr data-smart-change="lowdegr"> 
+                        <td data-tooltip="194" data-tooltip-hex="2">194</td> 
+                        <td data-smart-attr="194" data-smart-device="sdb">Temperature Celsius</td> 
+                        <td>112</td> 
+                        <td>097</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="35" data-tooltip-hex="12">35</td> 
+                        <td>8</td> 
+                        <td>9</td> 
+                        <td data-tooltip="previous RAW: 33">+2&uarr;</td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="196" data-tooltip-hex="2">196</td> 
+                        <td data-smart-attr="196" data-smart-device="sdb">Reallocated Event Count</td> 
+                        <td>200</td> 
+                        <td>200</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="197" data-tooltip-hex="2">197</td> 
+                        <td data-smart-attr="197" data-smart-device="sdb">Current Pending Sector</td> 
+                        <td>200</td> 
+                        <td>200</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="198" data-tooltip-hex="2">198</td> 
+                        <td data-smart-attr="198" data-smart-device="sdb">Offline Uncorrectable</td> 
+                        <td>200</td> 
+                        <td>200</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="199" data-tooltip-hex="2">199</td> 
+                        <td data-smart-attr="199" data-smart-device="sdb">UDMA CRC Error Count</td> 
+                        <td>200</td> 
+                        <td>200</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="200" data-tooltip-hex="2">200</td> 
+                        <td data-smart-attr="200" data-smart-device="sdb">Multi Zone Error Rate</td> 
+                        <td>200</td> 
+                        <td>200</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+</tbody></table> 
+</section> 
+<section id="smart-graph"> 
+                    <header class="section-header">S.M.A.R.T. graphs</header> 
+                    <div class="graph-container" data-graph-device="sdb"> 
+                        <ul class="attrs-links"></ul> 
+                        <ul class="graph-links"></ul> 
+                        <figure></figure> 
+                </div> 
+</section> 
+<section id="temperature"> 
+                <header class="section-header">Temperature &#176;C</header> 
+                <table class="two-cols-table"><tbody> 
+                    <tr><td>Current:</td><td>35</td></tr> 
+                    <tr><td>Lifetime min:</td><td>18</td></tr> 
+                    <tr><td>Lifetime max:</td><td>50</td></tr> 
+                    <tr><td>Recommended min:</td><td>0</td></tr> 
+                    <tr><td>Recommended max:</td><td>60</td></tr> 
+                    <tr><td>Limit min:</td><td>-41</td></tr> 
+                    <tr><td>Limit max:</td><td>85</td></tr> 
+                </tbody></table> 
+</section> 
+<section id="sct-temp"> 
+                    <header class="section-header">SCT temperature history</header> 
+                    <figure class="sct-temp-graph-container" data-sct-device="sdb"></figure> 
+                    <div class="sct-temp-container scroll-container" data-sct-device="sdb"></div> 
+                </section> 
+<section id="device-info"> 
+                <header class="section-header">Device info</header> 
+                <table class="two-cols-table"><tbody> 
+                    <tr><td>Model Family:</td><td>Western Digital Blue (CMR)</td></tr> 
+                    <tr><td>Device Model:</td><td>WDC WD20EZRZ-00Z5HB0</td></tr> 
+                    <tr><td>Serial Number:</td><td>WD-WCC4M2CNLX11</td></tr> 
+                    <tr><td>LU WWN Device Id:</td><td>5 14ee 7fffffff</td></tr> 
+                    <tr><td>Firmware Version:</td><td>80.00A80</td></tr> 
+                    <tr><td>User Capacity:</td><td>2000398934016 bytes [2000 Gb] (3907029168 blocks)</td></tr> 
+                    <tr><td>Sector Size (logical/physical):</td><td>512 bytes / 4096 bytes</td></tr> 
+                    <tr><td>Rotation Rate:</td><td>5400</td></tr> 
+                    <tr><td>Form Factor:</td><td></td></tr> 
+                    <tr><td>Device is:</td><td>In smartctl database [for details use: -P show]</td></tr> 
+                    <tr><td>ATA Version is:</td><td>ACS-2 (minor revision not indicated)</td></tr> 
+                    <tr><td>SATA Version is:</td><td>SATA 3.0</td></tr> 
+                    <tr><td>Local Time is:</td><td>Fri Dec 26 17:47:34 2025 MSK</td></tr> 
+                </tbody></table> 
+</section> 
+<section id="fdisk"> 
+                <header class="section-header">Disk</header> 
+                <table class="two-cols-table"> 
+                    <tbody><tr><td>Disk /dev/sdb:</td><td> 1.82 TiB, 2000398934016 bytes, 3907029168 sectors</td></tr> 
+<tr><td>Disk model:</td><td> STORY Station   </td></tr> 
+<tr><td>Units:</td><td> sectors of 1 * 512 = 512 bytes</td></tr> 
+<tr><td>Sector size (logical/physical):</td><td> 512 bytes / 512 bytes</td></tr> 
+<tr><td>I/O size (minimum/optimal):</td><td> 512 bytes / 512 bytes</td></tr> 
+<tr><td>Disklabel type:</td><td> gpt</td></tr> 
+<tr><td>Disk identifier:</td><td> 90FE3879-5B51-4D82-B6E8-16B1BF2015B8</td></tr> 
+</tbody> 
+                </table></section> 
+            <section id="partitions"> 
+                <header class="section-header">Partitions</header> 
+                <table><thead><tr><th>Device</th><th>Start</th><th>End</th><th>Sectors</th><th>Size</th><th>Type</th></tr></thead> 
+<tbody><tr><td>/dev/sdb1</td><td>34</td><td>262177</td><td>262144</td><td>128M</td><td>Microsoft reserved</td></tr> 
+<tr><td>/dev/sdb2</td><td>264192</td><td>3907028991</td><td>3906764800</td><td>1.8T</td><td>Microsoft data basic</td></tr> 
+</tbody></table> 
+</section> 
+            <section id="filesystems"> 
+                <header class="section-header">Mounted filesystems</header> 
+                    <table><thead><tr> 
+                        <th>Filesystem</th> 
+                        <th>Type</th> 
+                        <th>Size</th> 
+                        <th>Used</th> 
+                        <th>Available</th> 
+                        <th>Use %</th> 
+                        <th>Mounted on</th> 
+                    </tr></thead><tbody> 
+<tr><td>/dev/sdb2</td> 
+<td>tntfs</td> 
+<td>1.8T</td> 
+<td>1.4T</td> 
+<td>463.5G</td> 
+<td data-bar="75">75%</td> 
+<td>/tmp/mnt/C07C0C367C0C29AC</td> 
+</tr> 
+</tbody></table> 
+</section>
+</div> 
+</section>
+<section class="device-tab" data-device="sdc" data-tab="1" data-tab-title="/dev/sdc"> 
+                <div class="tab-flex-container"> 
+<header class="device-header">/dev/sdc | ADATA SU650 | Last check: 2025.12.26 17:47:40</header> 
+<script async="false">
+SCT_DEVICES_ARRAY.push([
+'sdc',
+128,
+0,
+1766760462,
+100,
+125,
+[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,36,null,null,39,]
+]);</script> 
+<section id="smart-table"> 
+                <header class="section-header">S.M.A.R.T. attributes</header> 
+<div class="smart-status" data-smart-status="passed"> 
+                    <span class="label">SMART overall-health self-assessment test result: passed</span> 
+                </div> 
+<table class="smart-table"> 
+                    <thead> 
+                        <tr> 
+                            <th scope="col">Id#</th> 
+                            <th scope="col">Attribute name</th> 
+                            <th scope="col">VALUE</th> 
+                            <th scope="col">WORST</th> 
+                            <th scope="col">THRESH</th> 
+                            <th scope="col">WHEN FAILED</th> 
+                            <th scope="col">RAW</th> 
+                            <th scope="col">Degr. count</th> 
+                            <th scope="col">Improv. count</th> 
+                            <th scope="col">Last change</th> 
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="1" data-tooltip-hex="2">1</td> 
+                        <td data-smart-attr="1" data-smart-device="sdc">Raw Read Error Rate</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>050</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="5" data-tooltip-hex="2">5</td> 
+                        <td data-smart-attr="5" data-smart-device="sdc">Reallocated Sector Ct</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>010</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="disabled"> 
+                        <td data-tooltip="9" data-tooltip-hex="2">9</td> 
+                        <td data-smart-attr="9" data-smart-device="sdc">Power On Hours</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="10206" data-tooltip-hex="12">10206</td> 
+                        <td></td> 
+                        <td></td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="disabled"> 
+                        <td data-tooltip="12" data-tooltip-hex="2">12</td> 
+                        <td data-smart-attr="12" data-smart-device="sdc">Power Cycle Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="534" data-tooltip-hex="12">534</td> 
+                        <td></td> 
+                        <td></td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="161" data-tooltip-hex="2">161</td> 
+                        <td data-smart-attr="161" data-smart-device="sdc">Valid Spare Block Cnt</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="162" data-tooltip-hex="2">162</td> 
+                        <td data-smart-attr="162" data-smart-device="sdc">Cache Block Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="30533" data-tooltip-hex="12">30533</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="163" data-tooltip-hex="2">163</td> 
+                        <td data-smart-attr="163" data-smart-device="sdc">Initial Bad Block Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="100" data-tooltip-hex="12">100</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="164" data-tooltip-hex="2">164</td> 
+                        <td data-smart-attr="164" data-smart-device="sdc">Total Erase Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="110" data-tooltip-hex="12">110</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="166" data-tooltip-hex="2">166</td> 
+                        <td data-smart-attr="166" data-smart-device="sdc">Min Erase Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="147" data-tooltip-hex="12">147</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="167" data-tooltip-hex="2">167</td> 
+                        <td data-smart-attr="167" data-smart-device="sdc">Average Erase Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>050</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="168" data-tooltip-hex="2">168</td> 
+                        <td data-smart-attr="168" data-smart-device="sdc">Max Erase Count of Spec</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="169" data-tooltip-hex="2">169</td> 
+                        <td data-smart-attr="169" data-smart-device="sdc">Remaining Lifetime Perc</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="100" data-tooltip-hex="12">100</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="171" data-tooltip-hex="2">171</td> 
+                        <td data-smart-attr="171" data-smart-device="sdc">Unknown Attribute</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="172" data-tooltip-hex="2">172</td> 
+                        <td data-smart-attr="172" data-smart-device="sdc">Unknown Attribute</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="174" data-tooltip-hex="2">174</td> 
+                        <td data-smart-attr="174" data-smart-device="sdc">Unknown Attribute</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="436" data-tooltip-hex="12">436</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="175" data-tooltip-hex="2">175</td> 
+                        <td data-smart-attr="175" data-smart-device="sdc">Program Fail Count Chip</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="lowdegr"> 
+                        <td data-tooltip="181" data-tooltip-hex="2">181</td> 
+                        <td data-smart-attr="181" data-smart-device="sdc">Program Fail Cnt Total</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="3084904" data-tooltip-hex="12">3084904</td> 
+                        <td>1</td> 
+                        <td>0</td> 
+                        <td data-tooltip="previous RAW: 3084896">+8&uarr;</td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="187" data-tooltip-hex="2">187</td> 
+                        <td data-smart-attr="187" data-smart-device="sdc">Reported Uncorrect</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="lowdegr"> 
+                        <td data-tooltip="194" data-tooltip-hex="2">194</td> 
+                        <td data-smart-attr="194" data-smart-device="sdc">Temperature Celsius</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>030</td> 
+                        <td>-</td> 
+                        <td data-tooltip="56" data-tooltip-hex="12">56</td> 
+                        <td>1</td> 
+                        <td>0</td> 
+                        <td data-tooltip="previous RAW: 50">+6&uarr;</td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="195" data-tooltip-hex="2">195</td> 
+                        <td data-smart-attr="195" data-smart-device="sdc">Hardware ECC Recovered</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="7" data-tooltip-hex="12">7</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="196" data-tooltip-hex="2">196</td> 
+                        <td data-smart-attr="196" data-smart-device="sdc">Reallocated Event Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="199" data-tooltip-hex="2">199</td> 
+                        <td data-smart-attr="199" data-smart-device="sdc">UDMA CRC Error Count</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="0" data-tooltip-hex="12">0</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="206" data-tooltip-hex="2">206</td> 
+                        <td data-smart-attr="206" data-smart-device="sdc">Unknown SSD Attribute</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="24" data-tooltip-hex="12">24</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="207" data-tooltip-hex="2">207</td> 
+                        <td data-smart-attr="207" data-smart-device="sdc">Unknown SSD Attribute</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="124" data-tooltip-hex="12">124</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="232" data-tooltip-hex="2">232</td> 
+                        <td data-smart-attr="232" data-smart-device="sdc">Available Reservd Space</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="100" data-tooltip-hex="12">100</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="233" data-tooltip-hex="2">233</td> 
+                        <td data-smart-attr="233" data-smart-device="sdc">Media Wearout Indicator</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="287" data-tooltip-hex="12">287</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="241" data-tooltip-hex="2">241</td> 
+                        <td data-smart-attr="241" data-smart-device="sdc">Host Writes 32MiB</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="919" data-tooltip-hex="12">919</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="242" data-tooltip-hex="2">242</td> 
+                        <td data-smart-attr="242" data-smart-device="sdc">Host Reads 32MiB</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="1118" data-tooltip-hex="12">1118</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="249" data-tooltip-hex="2">249</td> 
+                        <td data-smart-attr="249" data-smart-device="sdc">Unkn SiliconMotion Attr</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="1915" data-tooltip-hex="12">1915</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+<tr data-smart-change="idle"> 
+                        <td data-tooltip="250" data-tooltip-hex="2">250</td> 
+                        <td data-smart-attr="250" data-smart-device="sdc">Read Error Retry Rate</td> 
+                        <td>100</td> 
+                        <td>100</td> 
+                        <td>000</td> 
+                        <td>-</td> 
+                        <td data-tooltip="986" data-tooltip-hex="12">986</td> 
+                        <td>0</td> 
+                        <td>0</td> 
+                        <td></td> 
+                    </tr> 
+</tbody></table> 
+</section> 
+<section id="smart-graph"> 
+                    <header class="section-header">S.M.A.R.T. graphs</header> 
+                    <div class="graph-container" data-graph-device="sdc"> 
+                        <ul class="attrs-links"></ul> 
+                        <ul class="graph-links"></ul> 
+                        <figure></figure> 
+                </div> 
+</section> 
+<section id="temperature"> 
+                <header class="section-header">Temperature &#176;C</header> 
+                <table class="two-cols-table"><tbody> 
+                    <tr><td>Current:</td><td>0</td></tr> 
+                    <tr><td>Lifetime min:</td><td>0</td></tr> 
+                    <tr><td>Lifetime max:</td><td>38</td></tr> 
+                    <tr><td>Recommended min:</td><td>0</td></tr> 
+                    <tr><td>Recommended max:</td><td>100</td></tr> 
+                    <tr><td>Limit min:</td><td>-10</td></tr> 
+                    <tr><td>Limit max:</td><td>125</td></tr> 
+                </tbody></table> 
+</section> 
+<section id="sct-temp"> 
+                    <header class="section-header">SCT temperature history</header> 
+                    <figure class="sct-temp-graph-container" data-sct-device="sdc"></figure> 
+                    <div class="sct-temp-container scroll-container" data-sct-device="sdc"></div> 
+                </section> 
+<section id="device-stat"> 
+                    <header class="section-header">Device statistics</header> 
+<table class="two-cols-table"> 
+                        <caption>General Statistics</caption> 
+<tbody><tr><td>Lifetime Power-On Resets:</td><td>534</td></tr> 
+<tr><td>Power-on Hours:</td><td>10206</td></tr> 
+<tr><td>Logical Sectors Written:</td><td>1927730720</td></tr> 
+<tr><td>Number of Write Commands:</td><td>9902438</td></tr> 
+<tr><td>Logical Sectors Read:</td><td>2346271333</td></tr> 
+<tr><td>Number of Read Commands:</td><td>15238712</td></tr> 
+<tr><td>Date and Time TimeStamp:</td><td>36742057831</td></tr> 
+</tbody></table> 
+<table class="two-cols-table"> 
+                        <caption>General Errors Statistics</caption> 
+<tbody><tr><td>Number of Reported Uncorrectable Errors:</td><td>0</td></tr> 
+<tr><td>Resets Between Cmd Acceptance and Completion:</td><td>4662</td></tr> 
+</tbody></table> 
+<table class="two-cols-table"> 
+                        <caption>Transport Statistics</caption> 
+<tbody><tr><td>Number of Hardware Resets:</td><td>8395</td></tr> 
+<tr><td>Number of Interface CRC Errors:</td><td>0</td></tr> 
+</tbody></table> 
+<table class="two-cols-table"> 
+                        <caption>Solid State Device Statistics</caption> 
+<tbody><tr><td>Percentage Used Endurance Indicator:</td><td data-bar="37">37%</td></tr> 
+</tbody></table> 
+</section> 
+<section id="device-info"> 
+                <header class="section-header">Device info</header> 
+                <table class="two-cols-table"><tbody> 
+                    <tr><td>Model Family:</td><td>Silicon Motion based SSDs</td></tr> 
+                    <tr><td>Device Model:</td><td>ADATA SU650</td></tr> 
+                    <tr><td>Serial Number:</td><td>2K442929HJXC</td></tr> 
+                    <tr><td>LU WWN Device Id:</td><td>0 0 0</td></tr> 
+                    <tr><td>Firmware Version:</td><td>V8X02c08</td></tr> 
+                    <tr><td>User Capacity:</td><td>120034123776 bytes [120 Gb] (234441648 blocks)</td></tr> 
+                    <tr><td>Sector Size (logical/physical):</td><td>512 bytes / 512 bytes</td></tr> 
+                    <tr><td>Rotation Rate:</td><td>Solid State Device</td></tr> 
+                    <tr><td>Form Factor:</td><td>2.5 inches</td></tr> 
+                    <tr><td>Device is:</td><td>In smartctl database [for details use: -P show]</td></tr> 
+                    <tr><td>ATA Version is:</td><td>ACS-3, ATA8-ACS T13/1699-D revision 6</td></tr> 
+                    <tr><td>SATA Version is:</td><td>SATA 3.1</td></tr> 
+                    <tr><td>Local Time is:</td><td>Fri Dec 26 17:47:42 2025 MSK</td></tr> 
+                </tbody></table> 
+</section> 
+<section id="fdisk"> 
+                <header class="section-header">Disk</header> 
+                <table class="two-cols-table"> 
+                    <tbody><tr><td>Disk /dev/sdc:</td><td> 111.79 GiB, 120034123776 bytes, 234441648 sectors</td></tr> 
+<tr><td>Disk model:</td><td> External        </td></tr> 
+<tr><td>Units:</td><td> sectors of 1 * 512 = 512 bytes</td></tr> 
+<tr><td>Sector size (logical/physical):</td><td> 512 bytes / 512 bytes</td></tr> 
+<tr><td>I/O size (minimum/optimal):</td><td> 512 bytes / 512 bytes</td></tr> 
+<tr><td>Disklabel type:</td><td> gpt</td></tr> 
+<tr><td>Disk identifier:</td><td> 02ED3D01-F5F0-4C8F-BDBE-62DCE6844975</td></tr> 
+</tbody> 
+                </table></section> 
+            <section id="partitions"> 
+                <header class="section-header">Partitions</header> 
+                <table><thead><tr><th>Device</th><th>Start</th><th>End</th><th>Sectors</th><th>Size</th><th>Type</th></tr></thead> 
+<tbody><tr><td>/dev/sdc1</td><td>2048</td><td>234440703</td><td>234438656</td><td>111.8G</td><td>Microsoft data basic</td></tr> 
+</tbody></table> 
+</section> 
+            <section id="filesystems"> 
+                <header class="section-header">Mounted filesystems</header> 
+                    <table><thead><tr> 
+                        <th>Filesystem</th> 
+                        <th>Type</th> 
+                        <th>Size</th> 
+                        <th>Used</th> 
+                        <th>Available</th> 
+                        <th>Use %</th> 
+                        <th>Mounted on</th> 
+                    </tr></thead><tbody> 
+<tr><td>/dev/sdc1</td> 
+<td>exfat</td> 
+<td>111.8G</td> 
+<td>44.6G</td> 
+<td>67.2G</td> 
+<td data-bar="40">40%</td> 
+<td>/tmp/mnt/6228-5039</td> 
+</tr> 
+</tbody></table> 
+</section>
+</div> 
+</section>
+        </div>
+    </div>
+    <footer>
+    </footer>
+</body>
+</html>
