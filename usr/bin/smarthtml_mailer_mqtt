@@ -10,14 +10,19 @@ MQTT_LOGIN="login"
 MQTT_PASSWORD="password"
 MQTT_HOST="127.0.0.1" 
 MQTT_PORT=1883
-MQTT_TOPIC="smart"
+MQTT_ROOT_TOPIC="smart"
 
 export PATH="/opt/bin:/opt/sbin:/opt/usr/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en"
 export HOSTNAME="$HOSTNAME"
 
-DEBUG="$2"
+MQTT_ROOT_TOPIC=${MQTT_ROOT_TOPIC}/${HOSTNAME}
+
+MQTT_TOPIC="$1"
+MQTT_MSG="$2"
+
+DEBUG="$3"
 DEBUG_KEY=
 if [ -n "$DEBUG" ]; then
     DEBUG_KEY="--debug"
@@ -31,6 +36,6 @@ fi
 
 MQTT_MSG="`cat "$1"`"
 
-MQTT_CMD="${MQTT} --host ${MQTT_HOST} --port ${MQTT_PORT} --username ${MQTT_LOGIN} --pw ${MQTT_PASSWORD} --topic ${MQTT_TOPIC}/${HOSTNAME} --message ${MQTT_MSG} ${DEBUG_KEY}"
+MQTT_CMD="${MQTT} --host ${MQTT_HOST} --port ${MQTT_PORT} --username ${MQTT_LOGIN} --pw ${MQTT_PASSWORD} --topic ${MQTT_ROOT_TOPIC}/${MQTT_TOPIC} --message ${MQTT_MSG} ${DEBUG_KEY}"
 
 $MQTT_CMD
